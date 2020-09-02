@@ -596,7 +596,7 @@ int main(int argc, char const *argv[])
     loop = (int *)shmat(shmid, NULL, 0);
     *loop = 1;
     flag_grep[0] = loop + 1;
-    flag_grep[1] = loop + 1;
+    flag_grep[1] = loop + 2;
     *flag_grep[0] = *flag_grep[1] = 0;
 
     int pid1, pid2;
