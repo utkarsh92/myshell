@@ -13,4 +13,10 @@ OR
 1) $ make
 2) Enter commands
 
-(WARNING: every argument must be seperated by 1 or more spaces)
+GUIDELINES:
+
+1) Every argument must be separated by 1 or more space (except ';')
+2) Allowed grep cmd syntax:
+	i) grep (pattern) < (infile)
+       ii) cmd1 ... ... | grep (pattern)
+grep can be used with other IO redirection and commands but above syntax must be followed...

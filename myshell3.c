@@ -189,7 +189,7 @@ void grepOut(int index, char cmd[][WORD_LEN])
     {
         close(grep_fd[index][1]);
         dup2(grep_fd[index][0], 0);
-        char *arg[] = {"grep", cmd[*flag_grep[index]], NULL};
+        char *arg[] = {"grep", cmd[*flag_grep[index]], "--color=auto", NULL};
         execvp("grep", arg);
         perror("execvp");
     }
@@ -525,7 +525,7 @@ void execute(int index, char cmd[][WORD_LEN])
         {
             //child
             setupOutIO(index, cmd, 4);
-            char *arg[] = {"grep", cmd[1], cmd[3], NULL};
+            char *arg[] = {"grep", cmd[1], cmd[3], "--color=auto", NULL};
             execvp("grep", arg);
             perror("execvp");
             close(fd);
