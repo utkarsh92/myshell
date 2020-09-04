@@ -15,8 +15,11 @@ OR
 
 GUIDELINES:
 
-1) Every argument must be separated by 1 or more space (except ';')
+1) Every argument must be separated by 1 or more spaces (except ';')
+
 2) Allowed grep cmd syntax:
 	i) grep (pattern) < (infile)
-       ii) cmd1 ... ... | grep (pattern)
+       ii) ... ... ... | grep (pattern)
 grep can be used with other IO redirection and commands but above syntax must be followed...
+
+3) Shell program creates temporary files (namely ".temp1" and ".temp2") for some of it's commands so make sure you dont have any such files in the project directory

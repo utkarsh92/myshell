@@ -189,8 +189,10 @@ void grepOut(int index, char cmd[][WORD_LEN])
     {
         close(grep_fd[index][1]);
         dup2(grep_fd[index][0], 0);
-        char *arg[] = {"grep", cmd[*flag_grep[index]], "--color=auto", NULL};
-        execvp("grep", arg);
+        char *arg1[] = {"grep", cmd[*flag_grep[index]], "--color=auto", NULL};
+        char *arg2[] = {"grep", cmd[*flag_grep[index]], NULL};
+        execvp("grep", arg1);	//tries grep with color
+        execvp("grep", arg2);	//grep without color
         perror("execvp");
     }
 }
@@ -525,8 +527,10 @@ void execute(int index, char cmd[][WORD_LEN])
         {
             //child
             setupOutIO(index, cmd, 4);
-            char *arg[] = {"grep", cmd[1], cmd[3], "--color=auto", NULL};
-            execvp("grep", arg);
+            char *arg1[] = {"grep", cmd[1], cmd[3], "--color=auto", NULL};
+            char *arg2[] = {"grep", cmd[1], cmd[3], NULL};
+            execvp("grep", arg1);	//tries grep with color
+            execvp("grep", arg2);	//grep without color
             perror("execvp");
             close(fd);
             exit(1);
